@@ -213,15 +213,7 @@ async function deleteUser(req, res) {
     res.send("error");
   }
 }
-app.get('/',(req,res)=>{
-  res.send({
-    1:'/insert',
-    2:'/finduser30000',
-    3:'/finduser_exp2',
-    4:"/findUserwith_yearGrad_after2015_and_exp_greaterthan1",
-    5:'/update'
-  })
-})
+
 async function findUsersalary(req, res) {
     try {
         const result = await Employee.find([{ salary: { $gt: "15000" }},{salary:{$ls:"30000"}} ]);

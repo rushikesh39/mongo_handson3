@@ -6,6 +6,15 @@ const userRoutes=require("./routes/routes")
 app.use(express.json())
 
 // app.use("/",userRoutes)
+app.get('/',(req,res)=>{
+  res.send({
+    1:'/user',
+    2:'/finduser30000',
+    3:'/finduser_exp2',
+    4:"/findUserwith_yearGrad_after2015_and_exp_greaterthan1",
+    5:'/update'
+  })
+})
 async function dbconnect(){
     try{
         await connectToDB(process.env.URL)
@@ -16,15 +25,7 @@ async function dbconnect(){
     }
 }
 
-app.get('/',(req,res)=>{
-  res.send({
-    1:'/user',
-    2:'/finduser30000',
-    3:'/finduser_exp2',
-    4:"/findUserwith_yearGrad_after2015_and_exp_greaterthan1",
-    5:'/update'
-  })
-})
+
 async function startServer() {
     try {
     await dbconnect();
