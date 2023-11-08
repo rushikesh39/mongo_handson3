@@ -2,7 +2,7 @@ const Employee = require("../models/userModel");
 
 async function addnewUser(req, res) {
   try {
-    const result = await Employee.insertMany([
+    const result = await Employee.create([
       {
         firstName: "John",
         lastName: "Doe",
@@ -176,7 +176,7 @@ async function findUserwithsalarygreaterthan30000(req, res) {
 }
 async function findUserwithEXPgreaterthan2(req, res) {
   try {
-    const result = await Employee.find({overallExp:{$gte:'2'}});
+    const result = await Employee.find({overallExp:{$gt:'2'}});
     console.log(result);
     res.send({ user: result });
   } catch (e) {
